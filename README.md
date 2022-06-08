@@ -2,6 +2,43 @@
 
 A WordPress based website and local Docker-based development environment. 
 
+## Installation
+
+Clone this repo and change the name of the folder.
+
+Create a new .env file from example and change APP_NAME.
+
+```bash
+cp .env-example .env
+```
+
+
+## Start up
+
+```bash
+docker-compose up
+```
+
+Go to http://localhost:8000 and start configuring WordPress.
+
+To rebuild the containers:
+
+```bash
+docker-compose up --force-recreate --build
+```
+
+To delete the `db_data` volume:
+
+```bash
+docker-compose down -v
+```
+## Ports
+Web 8000
+DB 3306
+
+You can change the ports on .env file
+
+
 
 ## Directory/file structure:
 
@@ -35,40 +72,3 @@ define('WP_DEBUG', (bool) ($ENV['WP_DEBUG'] ?? false));
 define('WP_DEBUG_LOG', (bool) ($ENV['WP_DEBUG'] ?? false));
 // ...
 ```
-
-
-## Installation
-
-Create a new .env file from example and change APP_NAME 
-
-```bash
-cp .env-example .env
-```
-
-
-## Start up
-
-Start up with:
-
-```bash
-docker-compose up
-```
-
-Go to http://localhost:8000 and start work.
-
-To rebuild the containers:
-
-```bash
-docker-compose up --force-recreate --build
-```
-
-To delete the `db_data` volume:
-
-```bash
-docker-compose down -v
-```
-## Ports
-Web 8000
-DB 3306
-
-You can change the ports on .env file
